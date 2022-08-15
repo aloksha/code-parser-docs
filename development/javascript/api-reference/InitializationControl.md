@@ -9,10 +9,10 @@ noTitleIndex: true
 breadcrumbText: Initialize Engine
 ---
 
-# Initialization
+# Initialization Control
 
-* engineResourcePath
-* loadWasm()
+* [engineResourcePath](#engineResourcePath)
+* [loadWasm()](#loadwasm)
 
 ## engineResourcePath
 

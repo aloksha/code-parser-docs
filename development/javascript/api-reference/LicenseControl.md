@@ -11,7 +11,7 @@ breadcrumbText: Initialize License
 
 # License Control
 
-* license
+* [license](#license)
 
 
 ## license
