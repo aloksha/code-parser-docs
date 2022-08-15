@@ -104,20 +104,20 @@ Each parsing rule template must specify its referenced specification through the
         "EndSeparator": ""
     }
     ```
-    Option 8: `XmlKey` specifies each field's key in xml format.
+    Option 8: `XmlKey` specifies each field's key in xml code.
     ```json
     {
         "XmlKey": ""
     }
      ```
-    Option 9: `JsonKey` specifies each field's key in json format.
+    Option 9: `JsonKey` specifies each field's key in json code.
     ```json   
     {
         "JsonKey": ""
     }
     ```
     
-    - `OptionCombinationType` has two optional string values: `PriorityOrder` and `MutualVerification`. `PriorityOrder` means to apply only one location option from `Options` in array order. 
+    - `OptionCombinationType` has two optional string values: `PriorityOrder` and `MutualVerification`. `PriorityOrder` is default value and means to apply only one location option from `Options` in array order. `MutualVerification` means to apply all the options from `Options` and check whether their results are the same to verify whether parsing succeeded.
 
 - `ParseFunctionName` is an optional string parameter used to specify the name of the function which can parse the field after location. It's only used when above location parameters can't parse out the field and `DedicatedLibrary` is already specified.
 
@@ -145,7 +145,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "Line1",
             "ParentFieldName": "fullCodeString",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "OffsetFromParentStart": 0,
@@ -158,7 +157,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "documentCode",
             "ParentFieldName": "Line1",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "OffsetFromParentStart": 0,
@@ -171,7 +169,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "issuingState",
             "ParentFieldName": "Line1",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "PreviousFieldName": "documentCode",
@@ -186,7 +183,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "documentNumber",
             "ParentFieldName": "Line1",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "PreviousFieldName": "issuingState",
@@ -201,7 +197,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "checkDigitForDocumentNumber",
             "ParentFieldName": "Line1",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "PreviousFieldName": "documentNumber",
@@ -215,7 +210,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "optionalData1",
             "ParentFieldName": "Line1",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "PreviousFieldName": "checkDigitForDocumentNumber",
@@ -230,7 +224,6 @@ Below shows a part from MRZ-TD1's parsing rule template:
             "FieldName": "Line2",
             "ParentFieldName": "fullCodeString",
             "Location": {
-                "OptionCombinationType": "PriorityOrder",
                 "Options": [
                     {
                         "PreviousFieldName": "Line1",
@@ -245,4 +238,4 @@ Below shows a part from MRZ-TD1's parsing rule template:
 }
 ```
 > Note
-If you have questions about the template, please feel free to contact us.
+> If you have any question about the template, please feel free to contact us.
