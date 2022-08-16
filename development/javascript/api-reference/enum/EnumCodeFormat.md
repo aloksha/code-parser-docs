@@ -1,21 +1,24 @@
 ---
 layout: default-layout
-title: EnumCodeFormat - Dynamsoft Code Parser JavaScript Enum
-description: This page shows the EnumCodeFormat enum of Dynamsoft Code Parser for JavaScript.
-keywords: EnumCodeFormat, javascript, enum
+title: EnumCodeType - Dynamsoft Code Parser JavaScript Enum
+description: This page shows the EnumCodeType enum of Dynamsoft Code Parser for JavaScript.
+keywords: EnumCodeType, javascript, enum
 needAutoGenerateSidebar: false
 noTitleIndex: true
-breadcrumbText: EnumCodeFormat
+breadcrumbText: EnumCodeType
 ---
 
-# EnumCodeFormat
+# EnumCodeType
 
 ```ts
-enum EnumCodeFormat{
-    CF_AUTO = 0,
-    CF_DL_SOUTH_AFRICA = 1,
-    CF_DL_AAMVA = 2,
-    CF_AADHAAR = 6
+enum EnumCodeType{
+    CT_AUTO = 0,
+    CT_DL_SOUTH_AFRICA = 1,
+    CT_DL_AAMVA = 2,
+    CT_VIN = 4, 
+    CT_VDS_NC = 5, 
+    CT_AADHAAR = 6,
+    CT_MRZ = 7
 }
 ```
 

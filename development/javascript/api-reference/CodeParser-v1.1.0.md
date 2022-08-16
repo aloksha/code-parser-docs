@@ -29,17 +29,27 @@ console.log(result);
 | [createInstance()](#createinstance) | Creates a `CodeParser` instance. |
 | [destroyContext()](#destroycontext) | Destroys the `CodeParser` instance in WASM. |
 
-### Set Code Type
+### Set Code Format
 
 | API Name | Description |
 |---|---|
-| [setCodeType()](#setcodetype) | Sets input code's type. |
+| [setCodeFormat()](#setcodeformat) | Sets input code's format. |
 
 ### Parse Code Data
 
 | API Name | Description |
 |---|---|
 | [parseData()](#parsedata) | Parses code data for readable results. |
+
+<!--
+
+### Set Encryption Key
+
+| API Name | Description |
+|---|---|
+| [setCryptoPublicKey()](#setcryptopublickey) | Set a public key if code parsing needs. |
+| [setCertificate()](#setcertificate) | Set a certificate if code parsing needs. |
+-->
 
 
 ## createInstance
@@ -76,17 +86,17 @@ let parser = await Dynamsoft.DCP.CodeParser.createInstance();
 parser.destroyContext();
 ```
 
-## setCodeType
+## setCodeFormat
 
-Sets the code type that needs parsing. See [`EnumCodeType`](./enum/EnumCodeType-v2.0.0.md) to check if it has the code type you are looking for.
+Sets the code format that needs parsing. See EnumCodeFormat to check if it has the code format you are looking for.
 
 ```typescript
-setCodeType(codeType: EnumCodeType | string): Promise<void>  
+setCodeFormat(format: EnumCodeFormat): Promise<void> 
 ```
 
 ### Parameters
 
-`codeType`: specifies the code’s type represented by `EnumCodeType` or the [`CodeType`](../../../template/index.md#specification) value which specified in a JSON template.
+`format`: specifies the code’s format represented by EnumCodeFormat.
 
 ### Return Value
 
@@ -95,7 +105,7 @@ A promise that resolves when the operation succeeds.
 ### Code Snippet
 
 ```js
-await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
+await parser.setCodeFormat(Dynamsoft.DCP.EnumCodeFormat.CF_AUTO);
 // ... parse ...
 ```
 

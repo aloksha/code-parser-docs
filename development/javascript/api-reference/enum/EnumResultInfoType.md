@@ -16,7 +16,10 @@ enum EnumResultInfoType{
     RIT_PERSONAL_ID = 1,
     RIT_VDSNC = 2,
     RIT_AADHAAR = 3,
-    RIT_DRIVER_LICENSE_SOUTH_AFRICA = 4
+    RIT_DRIVER_LICENSE_SOUTH_AFRICA = 4,
+    RIT_MRZ = 5,
+    RIT_VIN = 6,
+    RIT_OTHER = 7
 }
 ```
 

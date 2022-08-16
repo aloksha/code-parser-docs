@@ -14,4 +14,4 @@ Dynamsoft Code Parser JavaScript SDK has the following interfaces.
 
 * [BasicPersonalInfo](basicpersonalinfo.html)
 * [CodeParserException](codeparserexception.html)
-* [ParseResult](parseresult.html)
+* [ParseResult](parseresult-v1.1.0.html)

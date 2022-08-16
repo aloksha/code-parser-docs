@@ -76,11 +76,11 @@ In order to make the code more predictable and readable, the library defines a s
 ### Interfaces
 
 * [CodeParserException](../api-reference/interface/CodeParserEception.md)
-* [ParseField](../api-reference/interface/ParseField-v2.0.0.md)
-* [ParseResult](../api-reference/interface/ParseResult-v2.0.0.md)
+* [ParseField](../api-reference/interface/ParseField.md)
+* [ParseResult](../api-reference/interface/ParseResult.md)
 
 ### Enums
 
 * [EnumErrorCode](../api-reference/enum/EnumErrorCode.md)
-* [EnumCodeType](../api-reference/enum/EnumCodeType-v2.0.0.md)
-* [EnumResultInfoType](../api-reference/enum/EnumResultInfoType-v2.0.0.md)
+* [EnumCodeType](../api-reference/enum/EnumCodeType.md)
+* [EnumResultInfoType](../api-reference/enum/EnumResultInfoType.md)

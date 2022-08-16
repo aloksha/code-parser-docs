@@ -16,10 +16,14 @@ breadcrumbText: ParseResult
 
   > The parsed result type.
 
-* basicPersonalInfo: *[BasicPersonalInfo](BasicPersonalInfo.md)*
+* resultInfo: *Array<ParseField>*
 
-  > The common basic personal info.
+  > The parsed result in Array<[ParseField](../interface/ParseField.md)>.
 
-* resultInfo: *any*
+* jsonStrResult: *string*
 
-  > The parsed result apart from basicPersonalInfo.
+  > The parsed result in json string format.
+
+* getValue(fieldName: string): string;
+
+  > The method to get the value according to a field name.

@@ -12,18 +12,14 @@ breadcrumbText: ParseResult
 
 `interface` ParseResult
 
-* resultInfoType: *number &#124; [EnumResultInfoType](../enum/EnumResultInfoType-v2.0.0.md)*
+* resultInfoType: *number &#124; [EnumResultInfoType](../enum/EnumResultInfoType.md)*
 
   > The parsed result type.
 
-* resultInfo: *Array<ParseField>*
+* basicPersonalInfo: *[BasicPersonalInfo](BasicPersonalInfo.md)*
 
-  > The parsed result in Array<[ParseField](../interface/ParseField-v2.0.0.md)>.
+  > The common basic personal info.
 
-* jsonStrResult: *string*
+* resultInfo: *any*
 
-  > The parsed result in json string format.
-
-* getValue(fieldName: string): string;
-
-  > The method to get the value according to a field name.
+  > The parsed result apart from basicPersonalInfo.

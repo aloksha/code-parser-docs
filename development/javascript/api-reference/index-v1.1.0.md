@@ -77,10 +77,10 @@ In order to make the code more predictable and readable, the library defines a s
 
 * [CodeParserException](../api-reference/interface/CodeParserEception.md)
 * [BasicPersonalInfo](../api-reference/interface/BasicPersonalInfo.md)
-* [ParseResult](../api-reference/interface/ParseResult.md)
+* [ParseResult](../api-reference/interface/ParseResult-v1.1.0.md)
 
 ### Enums
 
 * [EnumErrorCode](../api-reference/enum/EnumErrorCode.md)
-* [EnumCodeFormat](../api-reference/enum/EnumCodeFormat.md)
-* [EnumResultInfoType](../api-reference/enum/EnumResultInfoType.md)
+* [EnumCodeFormat](../api-reference/enum/EnumCodeFormat-v1.1.0.md)
+* [EnumResultInfoType](../api-reference/enum/EnumResultInfoType-v1.1.0.md)
