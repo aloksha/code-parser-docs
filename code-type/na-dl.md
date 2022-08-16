@@ -12,6 +12,8 @@ noTitleIndex: true
 
 Following table shows what `ParseField`s could be contained in a North American driver license's parse result:
 
+## Mandatory Fields
+
 | FieldName | Definition | Element ID |
 |---|---|---|
 | version | AAMVA Version Number. | - |
@@ -39,6 +41,15 @@ Following table shows what `ParseField`s could be contained in a North American 
 | familyNameTruncation | A code that indicates whether a field has been truncated (T), has not been truncated (N), or – unknown whether truncated (U). | DDE |
 | firstNameTruncation | A code that indicates whether a field has been truncated (T), has not been truncated (N), or – unknown whether truncated (U). | DDF |
 | middleNameTruncation | A code that indicates whether a field has been truncated (T), has not been truncated (N), or – unknown whether truncated (U). | DDG |
+| suffix | Name Suffix (If jurisdiction participates in systems requiring name suffix (PDPS, CDLIS, etc.), the suffix must be collected and displayed on the DL/ID and in the MRT). | DAE/DCU |
+| weightRange | Indicates the approximate weight range of the cardholder. | DCE |
+| commercialVehicleCode | Federally established codes for vehicle categories, endorsements, and restrictions that are generally applicable to commercial motor vehicles. If the vehicle is not a commercial vehicle, "NONE" is to be entered. | DCH |
+| givenName | Given names of the cardholder. (Given names include all names other than the Family Name. This includes all those names sometimes also called “first” and “middle” names.) | DCT |
+
+## Optional Fields
+
+| FieldName | Definition | Element ID |
+|---|---|---|
 | addressStreet_2 | Second line of street portion of the cardholder address. | DAH |
 | hairColour | Bald, black, blonde, brown, gray, red/auburn, sandy, white, unknown. If the issuing jurisdiction wishes to abbreviate colors, the three-character codes provided in AAMVA D20 must be used. | DAZ |
 | birthPlace | Country and municipality and/or state/province. | DCI |
@@ -48,18 +59,6 @@ Following table shows what `ParseField`s could be contained in a North American 
 | lastNameAlias | Other family name by which cardholder is known. | DBO/DBN |
 | givenNameAlias | Other given name by which cardholder is known. | DBG |
 | suffixAlias | Other suffix by which cardholder is known. | DBR/DBS |
-| suffix | Name Suffix (If jurisdiction participates in systems requiring name suffix (PDPS, CDLIS, etc.), the suffix must be collected and displayed on the DL/ID and in the MRT). | DAE/DCU |
-| weightRange | Indicates the approximate weight range of the cardholder:
-0 = up to 31 kg (up to 70 lbs)
-1 = 32 – 45 kg (71 – 100 lbs)
-2 = 46 - 59 kg (101 – 130 lbs)
-3 = 60 - 70 kg (131 – 160 lbs)
-4 = 71 - 86 kg (161 – 190 lbs)
-5 = 87 - 100 kg (191 – 220 lbs)
-6 = 101 - 113 kg (221 – 250 lbs)
-7 = 114 - 127 kg (251 – 280 lbs)
-8 = 128 – 145 kg (281 – 320 lbs)
-9 = 146+ kg (321+ lbs) | DCE |
 | race | Codes for race or ethnicity of the cardholder, as defined in AAMVA D20. | DCL |
 | standardVehicleCode | Standard vehicle classification code(s) for cardholder. | DCM |
 | standardEndorsementsCode | Standard endorsement code(s) for cardholder. | DCN |
@@ -78,7 +77,6 @@ Following table shows what `ParseField`s could be contained in a North American 
 | under21Until | Date on which the cardholder turns 21 years old. (MMDDCCYY for U.S., CCYYMMDD for Canada) | DDJ |
 | isOrganDonor | Field that indicates that the cardholder is an organ donor = “1” | DDK |
 | isVeteran | Field that indicates that the cardholder is a veteran = “1” | DDL |
-| commercialVehicleCode | Federally established codes for vehicle categories, endorsements, and restrictions that are generally applicable to commercial motor vehicles. If the vehicle is not a commercial vehicle, "NONE" is to be entered. | DCH |
-| givenName | Given names of the cardholder. (Given names include all names other than the Family Name. This includes all those names sometimes also called “first” and “middle” names.) | DCT |
 
+### Optional Fields for version 1
 
