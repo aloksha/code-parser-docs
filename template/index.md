@@ -39,7 +39,7 @@ Each parsing rule template must specify its referenced specification through the
 
 ### FieldArray
 
-`FieldArray` is an array of objects. Each object stands for a field in the code that you want to parse. Parameters in each object are as follows:
+`FieldArray` is an array of objects. Each object stands for a field in the code that you want or need to parse. Parameters in each object are as follows:
 
 - `FieldName` identifies the field uniquely and represent the parse result of the field.
 
@@ -53,10 +53,7 @@ Each parsing rule template must specify its referenced specification through the
     ```json
     {
         "OffsetFromParentStart": 0,
-        "Length": 0,
-        "SecondLocation": {
-            //...
-        }
+        "Length": 0
     }
     ```
     Option 2: `OffsetFromParentStart` and `RegExString`
@@ -116,8 +113,23 @@ Each parsing rule template must specify its referenced specification through the
         "JsonKey": ""
     }
     ```
+    Option 10: If one-time location can't finish parsing, you can put a `SecondLocation` after its first location.
+    ```json
+    {
+        "OffsetFromParentStart": 0,
+        "Length": 0,
+        "SecondLocation": {
+            //...
+            "RegExString": "/[A-Z]{1,}/g"
+        }
+    }
+    ```
     
-    - `OptionCombinationType` has two optional string values: `PriorityOrder` and `MutualVerification`. `PriorityOrder` is default value and means to apply only one location option from `Options` in array order. `MutualVerification` means to apply all the options from `Options` and check whether their results are the same to verify whether parsing succeeded.
+    - `OptionCombinationType` has two optional string values: `PriorityOrder` and `MutualVerification`. 
+
+        `PriorityOrder` is default value and means to apply only one location option from `Options` in array order. 
+
+        `MutualVerification` means to apply all the options from `Options` and check whether their results are the same to verify whether parsing succeeded.
 
 - `ParseFunctionName` is an optional string parameter used to specify the name of the function which can parse the field after location. It's only used when above location parameters can't parse out the field and `DedicatedLibrary` is already specified.
 
