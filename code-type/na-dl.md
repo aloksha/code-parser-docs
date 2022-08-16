@@ -4,7 +4,7 @@ title: Supported code types - Dynamsoft Code Parser SDK
 description: This is the supported code types page of Dynamsoft Label Recoginizer SDK.
 keywords: code types
 needAutoGenerateSidebar: true
-needGenerateH3Content: false
+needGenerateH3Content: true
 noTitleIndex: true
 ---
 
@@ -51,7 +51,7 @@ Following table shows what `ParseField`s could be contained in a North American 
 | FieldName | Definition | Element ID |
 |---|---|---|
 | addressStreet_2 | Second line of street portion of the cardholder address. | DAH |
-| hairColour | Bald, black, blonde, brown, gray, red/auburn, sandy, white, unknown. If the issuing jurisdiction wishes to abbreviate colors, the three-character codes provided in AAMVA D20 must be used. | DAZ |
+| hairColor | Bald, black, blonde, brown, gray, red/auburn, sandy, white, unknown. If the issuing jurisdiction wishes to abbreviate colors, the three-character codes provided in AAMVA D20 must be used. | DAZ |
 | birthPlace | Country and municipality and/or state/province. | DCI |
 | auditInfo | A string of letters and/or numbers that identifies when, where, and by whom a driver license/ID card was made. | DCJ |
 | inventoryControlNumber | A string of letters and/or numbers that is affixed to the raw materials (card stock, laminate, etc.) used in producing driver licenses and ID cards.(DHS recommended field) | DCK |

@@ -4,7 +4,7 @@ title: Template Structure - Dynamsoft Code Parser SDK
 description: This is the template structure page of Dynamsoft Label Recoginizer SDK.
 keywords: template structure
 needAutoGenerateSidebar: true
-needGenerateH3Content: false
+needGenerateH3Content: true
 noTitleIndex: true
 breadcrumbText: template structure
 ---
@@ -35,7 +35,7 @@ Each parsing rule template must specify its referenced specification through the
 
 - `CodeType` specifies the code's type. One `CodeType` can be assigned to several specific specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
 
-- `FeatureString` is a regular expression string used to distinguish between all specifications under one `CodeType`.
+- `FeatureString` is a regular expression string used to find out whether the code follows this specification.
 
 ### FieldArray
 
