@@ -33,7 +33,7 @@ Each parsing rule template must specify its referenced specification through the
 
 - `BasedOn` is an optional parameter used to specify the name of which existing specification your new parsing rule template is based on. It can save you time on new template's writing.
 
-- `CodeType` specifies the code's type. Each `CodeType` can be assigned to several specific specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser-v2.0.0.md#setcodetype);
+- `CodeType` specifies the code's type. Each `CodeType` can be assigned to several specific specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
 
 - `FeatureString` is a regular expression string used to distinguish between all specifications under one `CodeType`.
 
