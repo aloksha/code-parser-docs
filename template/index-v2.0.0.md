@@ -237,5 +237,4 @@ Below shows a part from MRZ-TD1's parsing rule template:
     ]
 }
 ```
-> Note
 > If you have any question about the template, please feel free to contact us.
