@@ -52,7 +52,7 @@ dnt_icon: /code-parser/docs/assets/img-icon/icon-dnt.svg
 
 template: /code-parser/docs/template/
 release-notes: /code-parser/docs/release-notes/
-data-format: /code-parser/docs/data-format/
+code-type: /code-parser/docs/code-type/
 license-activation: /code-parser/docs/license-activation/
 
 useVersionTree: true

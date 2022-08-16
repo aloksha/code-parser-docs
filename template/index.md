@@ -11,7 +11,7 @@ breadcrumbText: template structure
 
 # Template Structure
 
-Dynamsoft Code Parser (DCP) starts to provide user-customized parsing feature since edition 2.x by configuring a JSON template of the code's parsing rule. This article introduces how to configure a JSON template to make the CodeParser capable of parsing any code as long as its parsing spedification is available and accurate.
+Dynamsoft Code Parser(DCP) 2.0.0 starts to support parsing any type of code by loading its parse rule templates. This article will introduce you what a parse rule template includes and how to configure a template.
 
 ## Definition
 
@@ -27,13 +27,13 @@ Dynamsoft Code Parser uses a code parsing rule template to set parameters. A tem
 
 ### Specification
 
-Each parsing rule template must specify its referenced specification through the `Specification` object. Its parameters includes: 
+Each parsing rule template must specify its referenced specification through the `Specification` object since the template is actually transformed from the specification. Its parameters includes: 
 
 - `Name` specifies the specification's name uniquely.
 
 - `BasedOn` is an optional parameter used to specify the name of which existing specification your new parsing rule template is based on. It can save you time on new template's writing.
 
-- `CodeType` specifies the code's type. Each `CodeType` can be assigned to several specific specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
+- `CodeType` specifies the code's type. One `CodeType` can be assigned to several specific specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
 
 - `FeatureString` is a regular expression string used to distinguish between all specifications under one `CodeType`.
 
@@ -129,7 +129,7 @@ Each parsing rule template must specify its referenced specification through the
 
         `PriorityOrder` means to apply only one location option from `Options` array, and the array order is also the priority order.
 
-        `MutualVerification` means to apply all the options from `Options` and check whether their results are the same to verify whether parsing succeeded.
+        `MutualVerification` means to apply all the options from `Options` array and check whether their results are the same to verify whether parsing succeeded.
 
 - `ParseFunctionName` is an optional string parameter used to specify the name of the function which can parse the field after location. It's only used when above location parameters can't parse out the field and `DedicatedLibrary` is already specified.
 

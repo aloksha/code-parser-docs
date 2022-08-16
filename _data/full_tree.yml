@@ -5,6 +5,5 @@ tree_file_list:
     - sidelist-useful.html
     - sidelist-template.html
     - sidelist-release-notes.html
-    - sidelist-data-format.html
-    - sidelist-license-activation.html
+    - sidelist-code-type.html
 

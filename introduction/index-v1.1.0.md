@@ -15,11 +15,11 @@ For the initial release, DCP is only available for web applications as "DCP Java
 
 ## Usage Scenarios
 
-* North American driver's license
+* AAMVA driver's license
 
-All versions of the AAMVA Driver's License/Identification Specification used in North America are supported. 
+Countries covered: USA, Canada.
 
-The PDF417 barcodes on driver licenses with magnetic stripes, which follow the AAMVA Magnetic Stripe standard, are capable to get parsed.
+All versions of the AAMVA Driver's License/Identification Specification used in the US and Canada are supported. The PDF417 barcodes on driver licenses with magnetic stripes, which follow the AAMVA Magnetic Stripe standard, are capable to get parsed.
 
 * South African driver's license
 
@@ -29,15 +29,9 @@ The fields parsed from the South African driver's license are currently limited 
 
 The normal QR codes or Secure QR codes on eAadhaar, Aadhaar Letter and Aadhaar PVC Card are all capable to be parsed. 
 
-* Machine Readable Travel Documents
+* Coming soon
 
-All versions of Machine Readable Travel Documents (MRTD) specified by the International Civil Aviation Organization (ICAO) are supported.
-
-* Vehicle Identification Number
-
-All standards of the Vehicle Identification Number (VIN) are supported.
-
-If above code types don't cover the one you want to parse, please go [`Template Structure`](../template/index.md) to learn how to configure your own parse rule template.
+Future releases will support more scenarios such as international COVID-19 vaccination certificates, machine readable zones and ID parsing.
 
 ## Supported Platforms
 

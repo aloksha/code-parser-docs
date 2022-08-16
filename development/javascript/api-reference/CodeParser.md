@@ -84,7 +84,7 @@ parser.destroyContext();
 
 ## loadParseRuleTemplate
 
-Loads special code's parse rule template to support its parsing. Go [`Template Structure`](../../../template/index.md) to check how to configure your own template.
+Loads special code's parse rule template to support its parsing. Go [`Template Structure`](../../../template/index.md) to learn how to configure your own template.
 
 ```typescript
 loadParseRuleTemplate(template: string): Promise<void>
@@ -92,7 +92,7 @@ loadParseRuleTemplate(template: string): Promise<void>
 
 ### Parameters
 
-`template`: could be the template’s path or the template in string format. 
+`template`: could be the path of a file which contains all the templates you need, or just the templates in string format. 
 
 ### Return Value
 
