@@ -80,3 +80,28 @@ Following table shows what `ParseField`s could be contained in a North American 
 
 ### Optional Fields for version 1
 
+| FieldName | Definition | Element ID |
+|---|---|---|
+| residentialStreet_1 | STREET ADDRESS LINE 1. (MAILING) | DAL |
+| residentialCity | NAME OF CITY for mailing address. | DAN |
+| residentialJurisdictionCode | JURISDICTION CODE for mailing address. | DAO |
+| residentialPostalCode | POSTAL CODE of Residence. | DAP |
+| medicalIndicator | STATE SPECIFIC. Freeform; Standard "TBD" | DBG |
+| socialSecurityNumber | The number assigned to an individual by the Social Security Administration. | DBK |
+| permitClassificationCode | Identifies the type of permit as defined by ANSI D20. | PAA |
+| permitExpirationDate | CCYYMMDD; Date permit expires (Machine) Month, Day, Year (Human) | PAB |
+| permitIdentifier | Type of permit. | PAC |
+| permitIssueDate | CCYYMMDD; Date permit was issued. (Machine) Month, Day, Year (Human) | PAD |
+| permitRestrictionCode | PERMIT RESTRICTIONS as defined by ANSI D20. | PAE |
+| permitEndorsementCode | PERMIT ENDORSEMENTS as defined by ANSI D20. | PAF |
+| prefix | PREFIX to Driver Name. Not defined in ANSI D20. Freeform as defined by issuing jurisdiction. | DAF |
+| residentialStreet_2 | STREET ADDRESS LINE 2. (MAILING) | DAM |
+| issueTimestamp | A string used by some jurisdictions to validate the document against their data base. | DBE |
+| numberOfDuplicates | Number of duplicate cards issued for a license or ID if any. | DBF |
+| non-ResidentIndicator | "Y"; Used by some jurisdictions to indicate holder of the document is a non-resident. | DBI |
+| customerIdentifier | A number or alphanumeric string used by some jurisdictions to identify a "customer" across multiple data bases. | DBJ |
+| alternativeDateOfBirth | ALTERNATIVE DATES(S) given as date of birth. | DBL |
+| alternativeSocialSecurityNumber | FORMAT SAME AS DRIVER SOC SEC NUM. ALTERNATIVE NUMBERS(S) used as SS NUM. | DBM |
+| firstNameAlias | ALTERNATIVE FIRST NAME or GIVEN NAME of the individual holding the Driver License or ID. | DBP |
+| middleNameAlias | ALTERNATIVE MIDDLE NAME(s) or INITIALS of the individual holding the Driver License or ID. | DBQ |
+| prefixAlias | ALTERNATIVE PREFIX to Driver Name. Not defined in ANSI D20. Freeform as defined by issuing jurisdiction. | DBS |
