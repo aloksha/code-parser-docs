@@ -39,8 +39,8 @@ The complete code of the "Hello World" example is shown below:
 <html>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.2.13/dist/dbr.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.0.0/dist/dcp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.0.2/dist/dbr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@1.1.0/dist/dcp.js"></script>
   <script>
         // Specifies a license 
         Dynamsoft.DBR.BarcodeReader.license = 'DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9';
@@ -51,7 +51,7 @@ The complete code of the "Hello World" example is shown below:
                 let reader = await Dynamsoft.DBR.BarcodeReader.createInstance();
                 let parser = await Dynamsoft.DCP.CodeParser.createInstance();
 
-                await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
+                await parser.setCodeFormat(Dynamsoft.DCP.EnumCodeFormat.CF_AUTO);
 
                 // Decode the driver license with BarcodeReader
                 let results = await reader.decode(
@@ -82,7 +82,7 @@ The complete code of the "Hello World" example is shown below:
 
 * `createInstance()`: This method creates a CodeParser object.
 
-* `setCodeType`: This method sets the code’s type before parsing.
+* `setCodeFormat`: This method sets the code’s format before parsing.
 
 * `parseData`: This method parses the code.
 
@@ -99,13 +99,13 @@ The simplest way to include the SDK is to use either the [jsDelivr](https://jsde
 * jsDelivr
 
     ```html
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.0.0/dist/dcp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@1.1.0/dist/dcp.js"></script>
     ```
 
 * UNPKG  
 
     ```html
-    <script src="https://unpkg.com/dynamsoft-code-parser@2.0.0/dist/dcp.js"></script>
+    <script src="https://unpkg.com/dynamsoft-code-parser@1.1.0/dist/dcp.js"></script>
     ```
 
 #### Host the SDK yourself
@@ -129,7 +129,7 @@ Options to download the SDK:
 Depending on how you downloaded the SDK and where you put it, you can typically include it like this:
 
 ```html
-<script src="/dynamsoft-code-parser/dist/dcp.js"></script>
+<script src="/dynamsoft-code-parser-js-1.1.0/dist/dcp.js"></script>
 ```
 
 or
@@ -159,7 +159,7 @@ The purpose is to tell the SDK where to find the engine files (\*.worker.js, \*.
 
 ```javascript
 //The following code uses the jsDelivr CDN, feel free to change it to your own location of these files
-Dynamsoft.DCP.CodeParser.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@2.0.0/dist/";
+Dynamsoft.DCP.CodeParser.engineResourcePath = "https://cdn.jsdelivr.net/npm/dynamsoft-code-parser@1.1.0/dist/";
 ```
 
 ### Interact with the SDK
@@ -193,12 +193,12 @@ function foo() {
 }
 ```
 
-#### Set code type
+#### Set code format
 
-Before parsing, you need to specify the type of code to parse. See [EnumCodeType](../javascript/api-reference/enum/EnumCodeType-v2.0.0.md) to check if DCP-JS covers the code format you need.
+Before parsing, you need to specify the format of code to parse. See [EnumCodeFormat](https://www.dynamsoft.com/code-parser/docs/development/javascript/api-reference/enum/EnumCodeFormat.html?ver=1.0.2) to check if DCP-JS covers the code format you need.
 
 ```javascript
-await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AUTO); 
+parser.setCodeFormat(format); //format: EnumCodeFormat
 ```
 
 #### Parse code

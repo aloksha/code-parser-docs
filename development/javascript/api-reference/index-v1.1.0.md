@@ -19,7 +19,7 @@ A CodeParser takes code data in forms of byte array or plain string as input and
 
 ```js
 let parser = await Dynamsoft.DCP.CodeParser.createInstance();
-await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
+await parser.setCodeFormat(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
 let result = await parser.parseData(code);
 console.log(result);
 ```

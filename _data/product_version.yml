@@ -1,8 +1,4 @@
-useGroupedVersion: true
-
 version_info_list:
-  - value: latest version
-  - value: 1.x
-    child:
-      - 1.1.0
-      - 1.0.2
+  - latest version
+  - 1.1.0
+  - 1.0.2

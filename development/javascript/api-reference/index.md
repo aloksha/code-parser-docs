@@ -19,8 +19,8 @@ A CodeParser takes code data in forms of byte array or plain string as input and
 
 ```js
 let parser = await Dynamsoft.DCP.CodeParser.createInstance();
-await parser.setCodeFormat(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
-let result = await parser.parseData(code);
+await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
+let result = await parser.parseData(YOUR-CODE-STRING);
 console.log(result);
 ```
 
@@ -46,11 +46,11 @@ The APIs for this class include:
 | [createInstance()](CodeParser.md#createinstance) | Creates a `CodeParser` instance. |
 | [destroyContext()](CodeParser.md#destroycontext) | Destroys the `CodeParser` instance in WASM. |
 
-### Set Code Format
+### Set Code Type
 
 | API Name | Description |
 |---|---|
-| [setCodeFormat()](CodeParser.md#setcodeformat) | Sets input code's format. |
+| [setCodeType()](CodeParser.md#setcodetype) | Sets input code's type. |
 
 ### Parse Code Data
 
@@ -76,11 +76,11 @@ In order to make the code more predictable and readable, the library defines a s
 ### Interfaces
 
 * [CodeParserException](../api-reference/interface/CodeParserEception.md)
-* [BasicPersonalInfo](../api-reference/interface/BasicPersonalInfo.md)
-* [ParseResult](../api-reference/interface/ParseResult.md)
+* [ParseField](../api-reference/interface/ParseField-v2.0.0.md)
+* [ParseResult](../api-reference/interface/ParseResult-v2.0.0.md)
 
 ### Enums
 
 * [EnumErrorCode](../api-reference/enum/EnumErrorCode.md)
-* [EnumCodeFormat](../api-reference/enum/EnumCodeFormat.md)
-* [EnumResultInfoType](../api-reference/enum/EnumResultInfoType.md)
+* [EnumCodeType](../api-reference/enum/EnumCodeType-v2.0.0.md)
+* [EnumResultInfoType](../api-reference/enum/EnumResultInfoType-v2.0.0.md)
