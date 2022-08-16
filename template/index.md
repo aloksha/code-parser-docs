@@ -237,4 +237,4 @@ Below shows a part from MRZ-TD1's parsing rule template:
     ]
 }
 ```
-> If you have any question about the template, please feel free to contact us.
+> If you have any question about the template, please feel free to [contact us](https://www.dynamsoft.com/company/contact/).
