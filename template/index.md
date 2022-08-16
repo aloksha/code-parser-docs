@@ -113,7 +113,7 @@ Each parsing rule template must specify its referenced specification through the
         "JsonKey": ""
     }
     ```
-    Option 10: If one-time location can't finish parsing, you can put a `SecondLocation` after its first location.
+    Option 10: If one-time location can't finish parsing, you can add a `SecondLocation` after its first location.
     ```json
     {
         "OffsetFromParentStart": 0,
@@ -125,9 +125,9 @@ Each parsing rule template must specify its referenced specification through the
     }
     ```
     
-    - `OptionCombinationType` has two optional string values: `PriorityOrder` and `MutualVerification`. 
+    - `OptionCombinationType` has two optional string values: `PriorityOrder`(default value) and `MutualVerification`. 
 
-        `PriorityOrder` is default value and means to apply only one location option from `Options` in array order. 
+        `PriorityOrder` means to apply only one location option from `Options` array, and the array order is also the priority order.
 
         `MutualVerification` means to apply all the options from `Options` and check whether their results are the same to verify whether parsing succeeded.
 
