@@ -10,7 +10,16 @@ noTitleIndex: true
 
 # North American Driver License
 
-Following table shows what `ParseField`s could be contained in a North American driver license's parse result:
+Following tables show what `[ParseField](../development/javascript/api-reference/interface/ParseField.md)`s could be contained in a North American driver license's parse result:
+
+- [Mandatory Fields](#mandatory-fields) table contains all the minimum mandatory fields in all versions of the AAMVA Driver License/Identification specification (2000, 2003, 2005, 2009, 2010, 2011, 2012, 2013, 2016, 2020) used in the USA and in Canada.
+
+- [Optional Fields](#optional-fields) table contains all the optional fields in all versions of the AAMVA Driver License/Identification specification.
+
+    - [Optional Fields for version 1](#optional-fields-for-version-1) table contains other optional fields which only applied in version 1 (2000).
+
+- [North American Driver License with Magnetic Stripe](#north-american-driver-license-with-magnetic-stripe) table contains the fields that only applied in driver license with magnetic stripe.
+
 
 ## Mandatory Fields
 
@@ -18,7 +27,7 @@ Following table shows what `ParseField`s could be contained in a North American 
 |---|---|---|
 | version | AAMVA Version Number. | - |
 | ISOIIN | Issuer Identification Number. | - |
-| fullName | full name of the license holder. | DAA |
+| fullName | Full name of the license holder. | DAA |
 | jurisdictionVehicleCode | Jurisdiction-specific vehicle class / group code, designating the type of vehicle the cardholder has privilege to drive. | DAR/DCA |
 | jurisdictionRestrictionCode | Jurisdiction-specific codes that represent restrictions to driving privileges (such as airbrakes, automatic transmission, daylight only, etc.). | DAS/DCB |
 | jurisdictionEndorsementsCode | Jurisdiction-specific codes that represent additional privileges granted to the cardholder beyond the vehicle class (such as transportation of passengers, hazardous materials, operation of motorcycles, etc.). | DAT/DCD |
@@ -105,3 +114,31 @@ Following table shows what `ParseField`s could be contained in a North American 
 | firstNameAlias | ALTERNATIVE FIRST NAME or GIVEN NAME of the individual holding the Driver License or ID. | DBP |
 | middleNameAlias | ALTERNATIVE MIDDLE NAME(s) or INITIALS of the individual holding the Driver License or ID. | DBQ |
 | prefixAlias | ALTERNATIVE PREFIX to Driver Name. Not defined in ANSI D20. Freeform as defined by issuing jurisdiction. | DBS |
+
+## North American Driver License with Magnetic Stripe
+
+Basic fields from North American driver license with magnetic stripe are as follows, jurisdictional fields are not included.
+
+| FieldName | Definition |
+|---|---|
+| stateOrProvince | Mailing or residential code. |
+| city | City of the card holder. |
+| fullName | Priority is as follows, spaces allowed; familyname$givenname$suffix |
+| address | Address of the card holder. |
+| ISOIIN | This is the assigned identification number from ISO. This number shall always begin with a “6”. |
+| licenseNumber | This field is used to represent the DL/ID number assigned by each jurisdiction. |
+| expirationDate | This field is in the format: YYMM |
+| birthDate | This field is in the format: CCYYMMDD |
+| licenseNumberOverflow | Overflow for numbers longer than 13 characters. |
+| magStripeVersion | This is a decimal value between 0 and 9 that specifies the version level of the mag stripe format. |
+| jurisdictionVersion | This is a decimal value between 0 and 9 that specifies the jurisdiction version level of the mag stripe format |
+| postalCode | For an 11 digit postal or zip code. |
+| typeOfDL | Represents the type of DL (ANSI codes modified for CDLIS). |
+| restrictions | Allowable characters are further restricted to those defined in ANSI D-20. |
+| endorsements | Allowable characters are further restricted to those defined in ANSI D-20. |
+| sex | 1 for male, 2 for female, 9 for not specified. |
+| height | Height of the card holder. |
+| weight | Weight of the card holder. |
+| hairColor | HairColor of the card holder. |
+| eyeColor | EyeColor of the card holder. |
+

@@ -2,11 +2,11 @@
 layout: default-layout
 title: Template Structure - Dynamsoft Code Parser SDK 
 description: This is the template structure page of Dynamsoft Label Recoginizer SDK.
-keywords: template structure
+keywords: Template Structure
 needAutoGenerateSidebar: true
 needGenerateH3Content: true
 noTitleIndex: true
-breadcrumbText: template structure
+breadcrumbText: Template Structure
 ---
 
 # Template Structure
