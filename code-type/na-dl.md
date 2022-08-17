@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # North American Driver License
 
-Following tables show what `[ParseField](../development/javascript/api-reference/interface/ParseField.md)`s could be contained in a North American driver license's parse result:
+Following tables show what [`ParseField`](../development/javascript/api-reference/interface/ParseField.md)s could be contained in a North American driver license's parse result:
 
 - [Mandatory Fields](#mandatory-fields) table contains all the minimum mandatory fields in all versions of the AAMVA Driver License/Identification specification (2000, 2003, 2005, 2009, 2010, 2011, 2012, 2013, 2016, 2020) used in the USA and in Canada.
 

@@ -10,7 +10,7 @@ noTitleIndex: true
 
 # MRZ
 
-Following table shows what `ParseField`s could be contained in a MRZ's parse result:
+Following table shows what [`ParseField`](../development/javascript/api-reference/interface/ParseField.md)s could be contained in a MRZ's parse result:
 
 | FieldName | Definition |
 |---|---|
