@@ -1,7 +1,8 @@
 tree_file_list:
     - sidelist-full-tree.html
     - sidelist-introduction.html
-    - sidelist-development.html
+    - sidelist-development/development-javascript.html
+    - sidelist-development/development-javascript-v1.1.0.html
     - sidelist-useful.html
     - sidelist-template.html
     - sidelist-release-notes.html

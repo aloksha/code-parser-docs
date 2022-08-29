@@ -106,7 +106,7 @@ await parser.loadParseRuleTemplate("YOUR-TEMPLATE");
 
 ## setCodeType
 
-Sets the code type that needs parsing. See [`EnumCodeType`](./enum/EnumCodeFormat.md) to check if it has the code type you are looking for.
+Sets the code type that needs parsing. See [`EnumCodeType`](./enum/EnumCodeType.md) to check if it has the code type you are looking for.
 
 ```typescript
 setCodeType(codeType: EnumCodeType | string): Promise<void>  

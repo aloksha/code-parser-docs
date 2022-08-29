@@ -16,10 +16,10 @@ breadcrumbText: ParseField
 
   > The field's name.
 
-* parentFieldName: *string*
-
-  > The name of the field's parent field.
-
 * value: *string*
 
   > The field's parsed value.
+
+* childFields: *Array<ParseField>*
+
+  > The array of the field's child fields.

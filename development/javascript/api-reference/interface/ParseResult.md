@@ -20,10 +20,10 @@ breadcrumbText: ParseResult
 
   > The parsed result in Array<[ParseField](../interface/ParseField.md)>.
 
-* jsonStrResult: *string*
-
-  > The parsed result in json string format.
-
 * getValue(fieldName: string): string;
 
   > The method to get the value according to a field name.
+
+* getChildFields(fieldName: string): Array<ParseField>;
+
+  > The method to get the child fields according to a field name.

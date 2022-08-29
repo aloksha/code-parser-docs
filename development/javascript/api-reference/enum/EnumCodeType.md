@@ -14,7 +14,7 @@ breadcrumbText: EnumCodeType
 enum EnumCodeType{
     CT_AUTO = 0,
     CT_DL_SOUTH_AFRICA = 1,
-    CT_DL_AAMVA = 2,
+    CT_AAMVA_DL_ID = 2,
     CT_VIN = 4, 
     CT_VDS_NC = 5, 
     CT_AADHAAR = 6,

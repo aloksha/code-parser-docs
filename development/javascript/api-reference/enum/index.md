@@ -12,6 +12,6 @@ breadcrumbText: Enum Index
 
 Dynamsoft Code Parser JavaScript SDK has the following enums.
 
-* [EnumCodeType](enumcodeformat.html)
+* [EnumCodeType](enumcodetype.html)
 * [EnumErrorCode](enumerrorcode.html)
 * [EnumResultInfoType](enumresultinfotype.html)
