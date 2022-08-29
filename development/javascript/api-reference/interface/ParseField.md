@@ -20,6 +20,6 @@ breadcrumbText: ParseField
 
   > The field's parsed value.
 
-* childFields: *Array<ParseField>*
+* childFields: *Array<[ParseField](ParseField.md)>*
 
   > The array of the field's child fields.

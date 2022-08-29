@@ -11,39 +11,46 @@ breadcrumbText: Template Structure
 
 # Template Structure
 
-Dynamsoft Code Parser(DCP) 2.0.0 starts to support parsing any type of code by loading its parse rule templates. This article will introduce you what a parse rule template includes and how to configure a template.
+Dynamsoft Code Parser(DCP) 2.0.0 starts to support parsing any type of code by loading its parse rule templates. This article will introduce you what a parse rule template includes and how to write a template.
 
 ## Definition
 
-Dynamsoft Code Parser uses a code parsing rule template to set parameters. A template contains four types of data: `Specification`, `DedicatedLibrary`, `CodeMapFile` and `FieldArray`.
+Dynamsoft Code Parser uses parse rule templates to support code parsing. A template contains 6 types of data: 
 
-- `Specification` is used to specify the official released specification which the parsing rule comes from or relies on. Read more about [`Specification`](#specification);
+- `Name`
+- `CodeType`
+- `CodeFeaturePattern`
+- `DedicatedLibrary`
+- `CodeMapFile`
+- `Fields`
 
-- `FieldArray` is an array used to specify all the fields you want to parse from code. Every field in this array should be assigned with `FieldName` and `ParentFieldName`. Read more about [`FieldArray`](#fieldarray).
+### `Name` 
 
-- `DedicatedLibrary` is an optional parameter used to specify the path of a dynamic-link library which is provided by us. Please reach out on us if you have some special code to parse.
+    Specifies the template's name uniquely which always consists of the name of the specification that the template refered to.
 
-- `CodeMapFile` is an optional parameter used to specify the path of a map that helps converting some fields which represented as code into readable results.
+### `CodeType` 
 
-### Specification
+    Specifies the code's type. One `CodeType` can cover several specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
 
-Each parsing rule template must specify its referenced specification through the `Specification` object since the template is actually transformed from the specification. Its parameters includes: 
+### `CodeFeaturePattern` 
 
-- `Name` specifies the specification's name uniquely.
+    A regular expression string used to find out whether the code follows this template.
 
-- `BasedOn` is an optional parameter used to specify the name of which existing specification your new parsing rule template is based on. It can save you time on new template's writing.
+### `DedicatedLibrary` 
 
-- `CodeType` specifies the code's type. One `CodeType` can be assigned to several specific specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
+    An optional parameter used to specify the path of a dynamic-link library which is provided by us. Please [contact us](https://www.dynamsoft.com/company/contact/) if you have any special code to parse.
 
-- `FeatureString` is a regular expression string used to find out whether the code follows this specification.
+### `CodeMapFile` 
 
-### FieldArray
+    An optional parameter used to specify the path of a map that helps converting some fields which represented as code into readable results.
 
-`FieldArray` is an array of objects. Each object stands for a field in the code that you want or need to parse. Parameters in each object are as follows:
+### Fields
+
+    An array of objects used to specify all the fields you want to parse from code. Each object stands for a field in the code that you want or need to parse. Parameters in each object are as follows:
 
 - `FieldName` identifies the field uniquely and represent the parse result of the field.
 
-- `ParentFieldName` specifies the field which contains the current field. It's used with `OffsetFromParentStart` to locate the current field. If the code string needs some processing, you can define it with `fullCodeString` as its `FieldName`. If not, the field of `fullCodeString` still exists.
+- `ChildFields` specifies the field which contains the current field. It's used with `OffsetFromParentStart` to locate the current field. If the code string needs some processing, you can define it with `fullCodeString` as its `FieldName`. If not, the field of `fullCodeString` still exists.
 
 - `Location` is an object that contains an array which stores all the options to locate the field and a string which specify the way to apply these options.
 
@@ -139,114 +146,32 @@ Each parsing rule template must specify its referenced specification through the
 
     - `Value` specifies the decryption key.
 
-- `CodeMapSectionName` is an optional string parameter used to specify the name of map section which can convert the field into readable result.
+- `CodeMapTableName` is an optional string parameter used to specify the name of map table which can convert the field into readable result.
+
+- `Verification` is an optional object parameter used to specify how to verify the field. It can be written in folowing two ways:
+
+    Way 1: checksum verification
+    ```json
+    "Verification": {
+        "Type": "checksum",
+        "CheckDigit": "fieldNameOfCheckDigit",
+        "VerificationFunctionName": ""
+    }
+    ```
+    Way 2: certificate verification
+    ```json
+    "Verification": {
+        "Type": "certification",
+        "Cert": "",
+        "VerificationFunctionName": ""
+    }
+    ```
 
 ## Template Example
 
-Below shows a part from MRZ-TD1's parsing rule template:
+Below shows a part from MRZ-TD1's parse rule template:
 
 ```json
-{
-    "Specification": {
-        "Name": "MRZ-TD1", 
-        "FeatureString": "^[ACI][A-Z\\d<]{89}$",
-        "CodeType": "CT_MRZ"
-    },
-    "FieldArray": [
-        {
-            "FieldName": "Line1",
-            "ParentFieldName": "fullCodeString",
-            "Location": {
-                "Options": [
-                    {
-                        "OffsetFromParentStart": 0,
-                        "Length": 30
-                    }
-                ]
-            }
-        },
-        {
-            "FieldName": "documentCode",
-            "ParentFieldName": "Line1",
-            "Location": {
-                "Options": [
-                    {
-                        "OffsetFromParentStart": 0,
-                        "Length": 2
-                    }
-                ]
-            }
-        },
-        {
-            "FieldName": "issuingState",
-            "ParentFieldName": "Line1",
-            "Location": {
-                "Options": [
-                    {
-                        "PreviousFieldName": "documentCode",
-                        "OffsetFromPreviousEnd": 0,
-                        "Length": 3,
-                        "RegExString": "[A-Z]{1,3}"
-                    }
-                ]
-            }
-        },
-        {
-            "FieldName": "documentNumber",
-            "ParentFieldName": "Line1",
-            "Location": {
-                "Options": [
-                    {
-                        "PreviousFieldName": "issuingState",
-                        "OffsetFromPreviousEnd": 0,
-                        "Length": 9,
-                        "RegExString": "[A-Z0-9]{1,9}"
-                    }
-                ]
-            }
-        },
-        {
-            "FieldName": "checkDigitForDocumentNumber",
-            "ParentFieldName": "Line1",
-            "Location": {
-                "Options": [
-                    {
-                        "PreviousFieldName": "documentNumber",
-                        "OffsetFromPreviousEnd": 0,
-                        "Length": 1
-                    }
-                ]
-            }
-        },
-        {
-            "FieldName": "optionalData1",
-            "ParentFieldName": "Line1",
-            "Location": {
-                "Options": [
-                    {
-                        "PreviousFieldName": "checkDigitForDocumentNumber",
-                        "OffsetFromPreviousEnd": 0,
-                        "Length": 15,
-                        "RegExString": "/[A-Z0-9]{1,15}/g"
-                    }
-                ]
-            }
-        },
-        {
-            "FieldName": "Line2",
-            "ParentFieldName": "fullCodeString",
-            "Location": {
-                "Options": [
-                    {
-                        "PreviousFieldName": "Line1",
-                        "OffsetFromPreviousEnd": 0,
-                        "Length": 30
-                    }
-                ]
-            }
-        }
-        //...
-    ]
-}
+
 ```
 > If you have any question about the template, please feel free to [contact us](https://www.dynamsoft.com/company/contact/).

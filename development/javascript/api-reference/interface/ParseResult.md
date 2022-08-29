@@ -16,14 +16,14 @@ breadcrumbText: ParseResult
 
   > The parsed result type.
 
-* resultInfo: *Array<ParseField>*
+* resultInfo: *Array<[ParseField](ParseField.md)>*
 
-  > The parsed result in Array<[ParseField](../interface/ParseField.md)>.
+  > The parsed result in Array<[ParseField](ParseField.md)>.
 
-* getValue(fieldName: string): string;
+* getValue(fieldName: string): *string*;
 
   > The method to get the value according to a field name.
 
-* getChildFields(fieldName: string): Array<ParseField>;
+* getChildFields(fieldName: string): *Array<[ParseField](ParseField.md)>*;
 
   > The method to get the child fields according to a field name.
