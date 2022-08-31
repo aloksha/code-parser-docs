@@ -11,7 +11,7 @@ breadcrumbText: Template Structure
 
 # Template Structure
 
-Dynamsoft Code Parser(DCP) 2.0.0 starts to support parsing any type of code by loading its parse rule templates. This article will introduce you what a parse rule template includes and how to write a template.
+Dynamsoft Code Parser(DCP) 2.0.0 starts to support parsing any type of code by adding code's parsing templates. This article will introduce you what a parsing template includes and how to write a template.
 
 ## Definition
 
@@ -25,39 +25,39 @@ Dynamsoft Code Parser uses parse rule templates to support code parsing. A templ
 - `Fields`
 
 
-### `Name` 
+### Name
 
-Specifies the template's name uniquely which always consists of the name of the specification that the template refered to.
+A required and unique name of the template which usually named after the specification's name that the template based on. 
 
-### `CodeType` 
+### CodeType 
 
-Specifies the code's type. One `CodeType` can cover several specifications. It can be used as the argument of [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype);
+A required string used to symbolize the code's type so that it can be used when designating what code type you want to parse. See API [`setCodeType()`](../development/javascript/api-reference/CodeParser.md#setcodetype) for more details. One `CodeType` can be designated to several templates since it's quite common that the same code could follow different specifications.
 
-### `CodeFeaturePattern` 
+### CodeFeaturePattern 
 
-A regular expression string used to find out whether the code follows this template.
+A regular expression pattern string which describes the features of the code that the template can parse. It's required when the code is a string and you have two or more templates under one `CodeType`.
 
-### `DedicatedLibrary` 
+### DedicatedLibrary 
 
-An optional parameter used to specify the path of a dynamic-link library which is provided by us. Please [contact us](https://www.dynamsoft.com/company/contact/) if you have any special code to parse.
+An optional parameter used to specify the path of a dynamic-link library which is used to turn the code into plain text if the code is in unreadable formats such as byte array. Please [contact us](https://www.dynamsoft.com/company/contact/) if you have special code to parse.
 
-### `CodeMapFile` 
+### CodeMapFile 
 
 An optional parameter used to specify the path of a map that helps converting some fields which represented as code into readable results.
 
 ### Fields
 
-An array of objects used to specify all the fields you want to parse from code. Each object stands for a field in the code that you want or need to parse. Parameters in each object are as follows:
+An array of objects used to specify all the fields you want to parse from code. Each object stands for a field in the code that you want or need to parse. Parameters in each field are as follows:
 
-- `FieldName` identifies the field uniquely and represent the parse result of the field.
+- `FieldName` identifies the field uniquely and corresponds to the `FieldName` in `[ParseField](../development/javascript/api-reference/interface/ParseField.md)`. The full code in plain text is also seen as a field and it uses "fullCode" as `FieldName`. If the raw code needs to be processed to get the plain text, then the processed result is the "fullCode".
 
-- `ChildFields` specifies the field which contains the current field. It's used with `OffsetFromParentStart` to locate the current field. If the code string needs some processing, you can define it with `fullCodeString` as its `FieldName`. If not, the field of `fullCodeString` still exists.
+- `ChildFields` specifies the fields that contained in the current field. 
 
 - `Location` is an object that contains an array which stores all the options to locate the field and a string which specify the way to apply these options.
 
     - `Options` is an array that includes all the optional location ways. Normal location options are as follows:
 
-    Option 1: specify the start position's offset from a field and the length of the field.
+    Option 1: specify the start position's offset from another field and the length of the field.
     ```json
     {
         "OffsetFromField": "",
@@ -65,7 +65,7 @@ An array of objects used to specify all the fields you want to parse from code. 
         "Length": 0
     }
     ```
-    Option 2: specify the start position's offset from a field and the RegExString of the field.
+    Option 2: specify the start position's offset from another field and the RegExString of the field.
     ```json
     {
         "OffsetFromField": "",
@@ -87,7 +87,7 @@ An array of objects used to specify all the fields you want to parse from code. 
         "RegExString": ""
     }
     ```
-    Option 5: specify the start position's offset from a field and the separator after the field.
+    Option 5: specify the start position's offset from another field and the separator after the field.
     ```json
     {
         "OffsetFromField": "",
@@ -124,7 +124,7 @@ An array of objects used to specify all the fields you want to parse from code. 
         "EndWith": "?"
     }
     ```
-    Option 10: specify the start character of the field and its offset from a field and the end character of the field.
+    Option 10: specify the start character of the field and its offset from another field and the end character of the field.
     ```json
     {
         "OffsetFromField": "track1",
@@ -172,13 +172,13 @@ An array of objects used to specify all the fields you want to parse from code. 
 
         4. `Concatenation` means to apply all the options from `Options` array and concatenate all the results together as the final result.
 
-- `ParseFunctionName` is an optional string parameter used to specify the name of the function which can parse the field after location. It's only used when above location parameters can't parse out the field and `DedicatedLibrary` is already specified.
+- `ParseFunctionName` is an optional string parameter used to specify the name of the function which can process the code before its fields' location. It's only used when the fields in the code can't be located according to the raw code.
 
-- `DecryptionKey` is an optional object parameter used to specify the encryption type and key of the encryted field. 
+- `Decryption` is an optional object parameter used to specify the encryption algorithm and the decryption key. 
 
-    - `Type` specifies the encryption type.
+    - `Algorithm` specifies the encryption algorithm.
 
-    - `Value` specifies the decryption key.
+    - `Key` specifies the decryption key.
 
 - `CodeMapTableName` is an optional string parameter used to specify the name of map table which can convert the field into readable result.
 
@@ -188,24 +188,131 @@ An array of objects used to specify all the fields you want to parse from code. 
     ```json
     "Verification": {
         "Type": "checksum",
-        "CheckDigit": "fieldNameOfCheckDigit",
-        "VerificationFunctionName": ""
+        "CheckDigit": "fieldNameOfCheckDigit", //the field's name of the check digit
+        "VerificationFunctionName": ""         //the name of the verification function in the dynamic-link library
     }
     ```
     Way 2: certificate verification
     ```json
     "Verification": {
         "Type": "certification",
-        "Cert": "",
-        "VerificationFunctionName": ""
+        "Cert": "pathOfTheCertificate", //the path of the certificate that used to verify
+        "VerificationFunctionName": ""  //the name of the verification function in the dynamic-link library
     }
     ```
 
 ## Template Example
 
-Below shows a part from MRZ-TD1's parse rule template:
+Below shows a part from "MRZ-TD1" parsing template:
 
 ```json
-
+{
+    "Name": "MRZ-TD1", 
+    "CodeType": "CT_MRZ",
+    "CodeFeaturePattern": "^[ACI][A-Z\\d<]{89}$",
+    "DedicatedLibrary": "DCP_DLL",
+    "Fields": [
+        {
+            "FieldName": "fullCode",
+            "ChildFields": [
+                {
+                    "FieldName": "Line1",
+                    "Location": {
+                        "Options": [
+                            {
+                                "OffsetFromField": "fullCode",
+                                "Offset": 0,
+                                "Length": 30
+                            }
+                        ]
+                    },
+                    "ChildFields": [
+                        {
+                            "FieldName": "documentCode",
+                            "Location": {
+                                "Options": [
+                                    {
+                                        "OffsetFromField": "Line1",
+                                        "Offset": 0,
+                                        "Length": 2
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "FieldName": "issuingState",
+                            "Location": {
+                                "Options": [
+                                    {
+                                        "OffsetFromField": "Line1",
+                                        "Offset": 2,
+                                        "Length": 3,
+                                        "SecondLocation": {
+                                            "RegExString": "[A-Z]{1,3}"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "FieldName": "documentNumber",
+                            "Location": {
+                                "OptionCombinationType": "Concatenation",
+                                "Options": [
+                                    {
+                                        "OffsetFromField": "Line1",
+                                        "Offset": 5,
+                                        "Length": 9,
+                                        "SecondLocation": {
+                                            "RegExString": "[A-Za-z0-9]{1,9}"
+                                        }
+                                    },
+                                    {
+                                        "OffsetFromField": "Line1",
+                                        "Offset": 15,
+                                        "Length": 13,
+                                        "SecondLocation": {
+                                            "RegExString": "[A-Za-z0-9]{1,13}"
+                                        }
+                                    }
+                                ]
+                            },
+                            "Verification": {
+                                "Type": "checksum",
+                                "CheckDigit": "checkDigitForDocumentNumber",
+                                "VerificationFunctionName": "MRZ_verification"
+                            }
+                        },
+                        {
+                            "FieldName": "checkDigitForDocumentNumber",
+                            "Location": {
+                                "Options": [
+                                    {
+                                        "OffsetFromField": "Line1",
+                                        "Offset": 14,
+                                        "Length": 1,
+                                        "SecondLocation": {
+                                            "RegExString": "[0-9]"
+                                        }
+                                    },
+                                    {
+                                        "OffsetFromField": "Line1",
+                                        "Offset": 16,
+                                        "Length": 2,
+                                        "SecondLocation": {
+                                            "RegExString": "[0-9]"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                        //...
+                        //The rest of this template are left out here.
+                    ]
+                }
+            ]
+        }
+    ]
+}
 ```
 > If you have any question about the template, please feel free to [contact us](https://www.dynamsoft.com/company/contact/).

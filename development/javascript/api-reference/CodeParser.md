@@ -29,11 +29,11 @@ console.log(result);
 | [createInstance()](#createinstance) | Creates a `CodeParser` instance. |
 | [destroyContext()](#destroycontext) | Destroys the `CodeParser` instance in WASM. |
 
-### Load parse rule template
+### Add parsing template
 
 | API Name | Description |
 |---|---|
-| [loadParseRuleTemplate()](#loadparseruletemplate) | Loads special code's parse rule template. |
+| [addParsingTemplate()](#addparsingtemplate) | Adds special code's parsing template. |
 
 ### Set Code Type
 
@@ -82,12 +82,12 @@ let parser = await Dynamsoft.DCP.CodeParser.createInstance();
 parser.destroyContext();
 ```
 
-## loadParseRuleTemplate
+## addParsingTemplate
 
-Loads special code's parse rule template to support its parsing. Go [`Template Structure`](../../../template/index.md) to learn how to configure your own template.
+Adds special code's parsing template to support its parsing. Go [`Template Structure`](../../../template/index.md) to learn how to configure your own template.
 
 ```typescript
-loadParseRuleTemplate(template: string): Promise<void>
+addParsingTemplate(template: string): Promise<void>
 ```
 
 ### Parameters
@@ -101,7 +101,7 @@ A promise that resolves when the operation succeeds.
 ### Code Snippet
 
 ```js
-await parser.loadParseRuleTemplate("YOUR-TEMPLATE");
+await parser.addParsingTemplate("YOUR-TEMPLATE");
 ```
 
 ## setCodeType
