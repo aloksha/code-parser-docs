@@ -4,7 +4,6 @@ tree_file_list:
     - sidelist-development/development-javascript.html
     - sidelist-development/development-javascript-v1.1.0.html
     - sidelist-useful.html
-    - sidelist-custom.html
     - sidelist-release-notes.html
     - sidelist-code-type.html
 

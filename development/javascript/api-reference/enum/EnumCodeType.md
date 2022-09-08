@@ -12,13 +12,12 @@ breadcrumbText: EnumCodeType
 
 ```ts
 enum EnumCodeType{
-    CT_AUTO = 0,
-    CT_DL_SOUTH_AFRICA = 1,
-    CT_AAMVA_DL_ID = 2,
-    CT_VIN = 4, 
-    CT_VDS_NC = 5, 
-    CT_AADHAAR = 6,
-    CT_MRZ = 7
+    CT_DL_SOUTH_AFRICA = 0x01,
+    CT_AAMVA_DL_ID = 0x02, 
+    CT_VDS_NC = 0x04, 
+    CT_AADHAAR = 0x08,
+    CT_MRZ = 0x10,
+    CT_VIN = 0x20
 }
 ```
 

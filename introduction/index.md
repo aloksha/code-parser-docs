@@ -11,7 +11,7 @@ noTitleIndex: true
 
 When working with IDs, driver licenses, or sometimes even general barcodes, you may encounter results (usually as a plain string) that are "unreadable" but contain all the useful information you need. Dynamsoft Code Parser (DCP) is an SDK designed for parsing these types of results into human-readable information.
 
-For the initial release, DCP is only available for web applications as "DCP JavaScript Edition". Based on JavaScript and WebAssembly, DCP JavaScript Edition can run in all major modern browsers on all major platforms.
+At present, DCP is only available for web applications as "DCP JavaScript Edition". Based on JavaScript and WebAssembly, DCP JavaScript Edition can run in all major modern browsers on all major platforms.
 
 ## Usage Scenarios
 
@@ -19,15 +19,19 @@ For the initial release, DCP is only available for web applications as "DCP Java
 
 All versions of the AAMVA Driver's License/Identification Specification used in North America are supported. 
 
-The PDF417 barcodes on driver licenses with magnetic stripes, which follow the AAMVA Magnetic Stripe standard, are capable to get parsed.
+The PDF417 barcodes on driver licenses with magnetic stripes, which follow the AAMVA Magnetic Stripe standard, are also capable to get parsed.
 
 * South African driver's license
 
-The fields parsed from the South African driver's license are currently limited to some personal information, while the full information will be parsed in a future release.
+The code decoded from the PDF417 barcode on a South African driver's license can get all useful fields parsed, except the image field.
+
+* International COVID-19 Vaccination Certificate
+
+The QR code in a format called VDS-NC (Visible Digital Seal for Non-Constrained Environments), which the International Civil Aviation Organization (ICAO) has specified as its worldwide standard for digital vaccination certificates is capable to get parsed and verified.
 
 * Aadhaar Card in India
 
-The normal QR codes or Secure QR codes on eAadhaar, Aadhaar Letter and Aadhaar PVC Card are all capable to be parsed. 
+The normal QR codes or Secure QR codes on eAadhaar, Aadhaar Letter and Aadhaar PVC Card are all capable to get parsed. 
 
 * Machine Readable Travel Documents
 
@@ -35,9 +39,9 @@ All versions of Machine Readable Travel Documents (MRTD) specified by the Intern
 
 * Vehicle Identification Number
 
-All standards of the Vehicle Identification Number (VIN) are supported.
+The standards for Vehicle Identification Number (VIN) issued by the International Organization for Standardization (ISO) in 1979 and 1980: ISO 3779 and ISO 3780 are supported.
 
-If above code types don't cover the one you want to parse, please go [`Template Structure`](../template/index.md) to learn how to configure your own parse rule template.
+If above code types don't cover the code type you want to parse, please [contact us](https://www.dynamsoft.com/company/contact/) to get custom parsing service.
 
 ## Supported Platforms
 
@@ -59,13 +63,13 @@ There are mainly four steps to use a CodeParser, the following takes the JavaScr
 
     With a license in place, you can create a Code Parser instance to use. For the JavaScript edition, the SDK is designed to download and compile the WASM resources (the engine files) automaticly before creating an instance.
 
-3. Set code format
+3. Set code type
 
-    The 2nd last step is to set the code format (see [EnumCodeFormat](../development/javascript/api-reference/enum/EnumCodeFormat.md)) of the document image that you want to get information from.
+    The 2nd last step is to set the code type (see [EnumCodeType](../development/javascript/api-reference/enum/EnumCodeType.md)) of the code string that you want to get information from.
 
 4. Parse code
 
-    Lastly, call the method `parseData()` to do the actual parsing and get results in a specific format (see [EnumResultInfoType](../development/javascript/api-reference/enum/EnumResultInfoType.md)).
+    Lastly, call the method `parseData()` to do the actual parsing and get useful results.
 
 <!-- > If your input code requires a public key or certificate to help with parsing, please set it up beforehand. For example, a public key needs to be set before parsing a South African driver's license, and a certificate is often required when parsing a COVID-19 vaccination certificate. -->
 

@@ -29,12 +29,6 @@ console.log(result);
 | [createInstance()](#createinstance) | Creates a `CodeParser` instance. |
 | [destroyContext()](#destroycontext) | Destroys the `CodeParser` instance in WASM. |
 
-### Add parsing template
-
-| API Name | Description |
-|---|---|
-| [addParsingTemplate()](#addparsingtemplate) | Adds special code's parsing template. |
-
 ### Set Code Type
 
 | API Name | Description |
@@ -82,39 +76,17 @@ let parser = await Dynamsoft.DCP.CodeParser.createInstance();
 parser.destroyContext();
 ```
 
-## addParsingTemplate
-
-Adds special code's parsing template to support its parsing. Go [`Template Structure`](../../../template/index.md) to learn how to configure your own template.
-
-```typescript
-addParsingTemplate(template: string): Promise<void>
-```
-
-### Parameters
-
-`template`: could be the path of a file which contains all the templates you need, or just the templates in string format. 
-
-### Return Value
-
-A promise that resolves when the operation succeeds.
-
-### Code Snippet
-
-```js
-await parser.addParsingTemplate("YOUR-TEMPLATE");
-```
-
 ## setCodeType
 
 Sets the type of the code that needs parsing. See [`EnumCodeType`](./enum/EnumCodeType.md) to check if it has the code type you are looking for.
 
 ```typescript
-setCodeType(codeType: EnumCodeType | string): Promise<void>  
+setCodeType(codeType: EnumCodeType | number): Promise<void>  
 ```
 
 ### Parameters
 
-`codeType`: specifies the code’s type represented by `EnumCodeType` or the [`CodeType`](../../../template/index.md#specification) value which specified in a JSON template.
+`codeType`: specifies the code’s type represented by `EnumCodeType` or a number provided by us.
 
 ### Return Value
 
@@ -123,7 +95,7 @@ A promise that resolves when the operation succeeds.
 ### Code Snippet
 
 ```js
-await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AUTO);
+await parser.setCodeType(Dynamsoft.DCP.EnumCodeType.CT_AAMVA_DL_ID);
 // ... parse ...
 ```
 
@@ -154,58 +126,3 @@ await parser.parseData(YOUR-CODE-THAT-NEEDS-PARSING);
 * [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
 * [ParseResult](./interface/ParseResult.md)
 
-<!--
-
-## setCryptoPublicKey
-
-Sets the public key if your parsing process needs one.
-
-```typescript
-setCryptoPublicKey(key: string): Promise<void>
-```
-
-### Parameters
-
-`key`: specifies the public key represented by a string.
-
-### Return Value
-
-A promise that resolves when the operation succeeds.
-
-### Code Snippet
-
-```js
-let parser = await Dynamsoft.DCP.CodeParser.createInstance();
-parser.setCryptoPublicKey(YOUR-PUBLIC-KEY);
-// … parse …
-```
-
-## setCertificate
-
-Sets the certificate if your parsing process needs one.
-
-```typescript
-setCertificate(value: Uint8Array | ArrayBuffer | string): Promise<void>
-```
-
-### Parameters
-
-`value`: specifies the certificate represented by a Uint8Array, ArrayBuffer or string.
-
-### Return Value
-
-A promise that resolves when the operation succeeds.
-
-### Code Snippet
-
-```js
-let parser = await Dynamsoft.DCP.CodeParser.createInstance();
-parser.setCertificate(YOUR-CERTIFICATE);
-// … parse …
-```
-
-### See Also
-
-* [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)
-
--->

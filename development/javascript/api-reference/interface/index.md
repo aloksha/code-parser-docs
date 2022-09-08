@@ -13,5 +13,4 @@ breadcrumbText: Interface Index
 Dynamsoft Code Parser JavaScript SDK has the following interfaces.
 
 * [CodeParserException](codeparserexception.html)
-* [ParseField](parsefield.html)
 * [ParseResult](parseresult.html)

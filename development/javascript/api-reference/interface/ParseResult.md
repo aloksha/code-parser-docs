@@ -12,15 +12,19 @@ breadcrumbText: ParseResult
 
 `interface` ParseResult
 
-* resultInfoType: *number &#124; [EnumResultInfoType](../enum/EnumResultInfoType.md)*
+* codeType: *number &#124; [EnumCodeType](../enum/EnumCodeType.md)*
 
-  > The parsed result type.
+  > The value of parsed result's type.
 
-* resultInfo: *Array<[ParseField](ParseField.md)>*
+* codeTypeString: *string*
 
-  > The parsed result in Array<[ParseField](ParseField.md)>.
+  > The name of parsed result's type.
 
-* jsonResult: *any*
+* specificationName: *string*
+
+  > The specification's name which the parsing based on.
+
+* resultInfo: *any*
 
   > The parsed result in json object.
 
