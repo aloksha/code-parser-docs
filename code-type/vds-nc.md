@@ -8,7 +8,7 @@ needGenerateH3Content: false
 noTitleIndex: true
 ---
 
-# ICAO VDS-NC Health Proof
+# ICAO VDS-NC Digital Vaccination Certificate
 
 The ICAO VDS-NC (Visible Digital Seal for non-constrained environments) specifications detail two versions for the Proof of Vaccination. Only version 1 is supported. Following tables show what fields could be contained in a VDS-NC Qr code's parse result:
 
