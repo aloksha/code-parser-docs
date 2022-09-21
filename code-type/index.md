@@ -14,7 +14,7 @@ Dynamsoft Code Parser(DCP) supports parsing following code types:
 
 - [North American Driver License](na-dl.md)
 - [South African Driver License](sa-dl.md)
-- [ICAO VDS-NC Health Proofs](vds-nc.md)
+<!-- - [ICAO VDS-NC Health Proofs](vds-nc.md) -->
 - [Aadhaar card](aadhaar.md)
 - [MRZ](mrz.md)
 - [VIN](vin.md)

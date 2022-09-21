@@ -10,11 +10,11 @@ noTitleIndex: true
 
 # Release Notes for JavaScript SDK - 2.x
 
-## 2.0.0 (09/22/2022)
+## 2.0.0 (09/2/2022)
 
 ### Add
 
-* Add `CT_VDS_NC`, `CT_MRZ`, `CT_VIN` to `EnumCodeType`.
+* Add `CT_MRZ`, `CT_VIN` to `EnumCodeType`.
 
 ### Change
 
