@@ -28,6 +28,6 @@ breadcrumbText: ParseResult
 
   > The parsed result in json object.
 
-* getFieldValueByName(fieldName: string): *Promise<string>*;
+* getFieldValueByName(fieldName: string): *Promise\<string\>*;
 
   > The method to get the value according to a field's name or a string made up of several fields' name connected with a comma which designates to a field under other fields. 
