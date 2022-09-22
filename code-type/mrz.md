@@ -10,7 +10,9 @@ noTitleIndex: true
 
 # MRZ
 
-All versions of Machine Readable Travel Documents (MRTD) specified by the International Civil Aviation Organization (ICAO) are supported. Following table shows what fields could be contained in a MRZ's parse result:
+All versions of Machine Readable Travel Documents (MRTD) specified by the International Civil Aviation Organization (ICAO) are supported. 
+
+Following table shows what fields could be contained in a MRZ's parse result:
 
 | FieldName | Definition |
 |---|---|

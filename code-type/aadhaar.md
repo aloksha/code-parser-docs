@@ -10,7 +10,9 @@ noTitleIndex: true
 
 # Aadhaar Card
 
-E-Aadhaar, Aadhaar Letter and Aadhaar PVC Card are all supported. Following tables show what fields could be contained in an Aadhaar card's parse result:
+E-Aadhaar, Aadhaar Letter and Aadhaar PVC Card are all supported. 
+
+Following tables show what fields could be contained in an Aadhaar card's parse result:
 
 | FieldName | Definition |
 |---|---|
