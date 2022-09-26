@@ -25,9 +25,9 @@ The PDF417 barcodes on driver licenses with magnetic stripes, which follow the A
 
 The code decoded from the PDF417 barcode on a South African driver's license can get all useful fields parsed, except the image field.
 
-* ICAO VDS-NC Digital Vaccination Certificate
+<!-- * ICAO VDS-NC Digital Vaccination Certificate
 
-The QR code in a format called VDS-NC (Visible Digital Seal for Non-Constrained Environments), which the International Civil Aviation Organization (ICAO) has specified as its worldwide standard for digital vaccination certificates is capable to get parsed and verified.
+The QR code in a format called VDS-NC (Visible Digital Seal for Non-Constrained Environments), which the International Civil Aviation Organization (ICAO) has specified as its worldwide standard for digital vaccination certificates is capable to get parsed and verified. -->
 
 * Aadhaar Card in India
 
