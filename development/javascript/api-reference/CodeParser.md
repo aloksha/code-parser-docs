@@ -88,7 +88,7 @@ parser.destroyContext();
 
 ## setCodeFormat
 
-Sets the code format that needs parsing. See EnumCodeFormat to check if it has the code format you are looking for.
+Sets the code format that needs parsing. See EnumCodeFormat to check if it has the code format you are looking for. To get familiar with the supported code formats, please visit [EnumCodeFormat](enum/EnumCodeFormat.md).
 
 ```typescript
 setCodeFormat(format: EnumCodeFormat): Promise<void> 
